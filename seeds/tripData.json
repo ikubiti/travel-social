@@ -1,0 +1,27 @@
+[
+  {
+    "name": "A Weekend with Nature",
+    "description": "A weekend at the Glacier National Park with family and friends",
+    "user_id": 3
+  },
+  {
+    "name": "The Ultimate Party Night",
+    "description": "Enjoying the company of my friends in the busy streets of Times Square",
+    "user_id": 5
+  },
+  {
+    "name": "Nature is calling",
+    "description": "A hiking adventure at the Yosemite National Park",
+    "user_id": 4
+  },
+  {
+    "name": "Birthday Party",
+    "description": "Hosting my friends in Las Vegas for my birthday party",
+    "user_id": 2
+  },
+  {
+    "name": "An enchanted journey",
+    "description": "Hoping to create an enchanted journey with my family and friends at Walt Disney",
+    "user_id": 1
+  }
+]

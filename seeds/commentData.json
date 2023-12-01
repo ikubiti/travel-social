@@ -1,0 +1,92 @@
+[
+  {
+    "comment": "OMG, the Highline Trail is definitely a must visit location for everyone, nature at it's best.",
+    "user_id": 3,
+    "trip_id": 1,
+    "location_id": 16
+  },
+  {
+    "comment": "The 9/11 Memorial and Museum is a sobering place to visit and a painful reminder of how far humans can go to get their point across.",
+    "user_id": 5,
+    "trip_id": 2,
+    "location_id": 10
+  },
+  {
+    "comment": "The Yosemite Falls Trail took my breath away, the waterfall is a thing of true beauty.",
+    "user_id": 4,
+    "trip_id": 3,
+    "location_id": 8
+  },
+  {
+    "comment": "What happens in Vegas stays in Vegas!!",
+    "user_id": 2,
+    "trip_id": 4,
+    "location_id": 7
+  },
+  {
+    "comment": "After an enchanted family time at Walt Disney World, we took a trip to the Cocoa Beach and it wasn't a disappointment. The fun simply continued unabated.",
+    "user_id": 1,
+    "trip_id": 5,
+    "location_id": 5
+  },
+  {
+    "comment": "Natural beauty at its very best, the Grinnell Glacier is a breathtaking place.",
+    "user_id": 1,
+    "trip_id": 1,
+    "location_id": 16
+  },
+  {
+    "comment": "Besides being a great place to experience a little nature, Central Park has many attractions within its borders, and most of them are free, making it one of the few cheap things to do in NYC.",
+    "user_id": 7,
+    "trip_id": 2,
+    "location_id": 10
+  },
+  {
+    "comment": "The Half Dome Hike was both a great challenging exercise and quite exhilarating.",
+    "user_id": 2,
+    "trip_id": 3,
+    "location_id": 8
+  },
+  {
+    "comment": "The Strip has got it all when it's about entertainment. Hosting the next trip there with my friends.",
+    "user_id": 2,
+    "trip_id": 4,
+    "location_id": 7
+  },
+  {
+    "comment": "Walt Disney World Resort knows how to host the ultimate family adventure, it was all blitz and glamor.",
+    "user_id": 4,
+    "trip_id": 5,
+    "location_id": 5
+  },
+  {
+    "comment": "If you haven't been to Avalanche Lake, please make it a point to visit this endowed place of nature.",
+    "user_id": 2,
+    "trip_id": 1,
+    "location_id": 16
+  },
+  {
+    "comment": "Went to see the Statue of Liberty, the movies do it little justice, it's truly imposing.",
+    "user_id": 6,
+    "trip_id": 2,
+    "location_id": 10
+  },
+  {
+    "comment": "The Mist Trail to Vernal Fall and Nevada Fall is popular for a reason and I just found out why it is so, it's beauty is mystical.",
+    "user_id": 7,
+    "trip_id": 3,
+    "location_id": 8
+  },
+  {
+    "comment": "The Fremont Street Experience was simply a magical fun place, we had so much fun.",
+    "user_id": 2,
+    "trip_id": 4,
+    "location_id": 7
+  },
+  {
+    "comment": "My kids won't stop talking about Disney World, and keep asking when will be our next trip there, should I say more? ",
+    "user_id": 5,
+    "trip_id": 5,
+    "location_id": 5
+  }
+]

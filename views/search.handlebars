@@ -1,0 +1,43 @@
+<section class='mx-36 my-10 rounded'>
+  <!-- Section Title -->
+  <h2
+    class='flex justify-center mb-9 mx-96 text-4xl px-5 py-5 bg-black text-white rounded shadow-2xl bg-gradient-to-b from-lime-600 to-yellow-400'
+  >Results</h2>
+  <!-- "Search Results Section Container" -->
+  <div class='grid grid-cols-3 gap-20 px-16 opacity-100'>
+    <!-- Search Result Card #1 -->
+    {{#each user}}
+      <div
+        class='flex flex-col justify-center hover:scale-110 p-5 bg-gradient-to-r from-green-800 via-green-600 to-lime-600 rounded cursor-pointer'
+      >
+        <a href='/profile/{{id}}'>
+          <h3
+            class='resultsTitle text-xl text-white text-center py-4'
+          >{{name}}</h3>
+        </a>
+      </div>
+    {{/each}}
+    {{#each trip}}
+      <div
+        class='flex flex-col justify-center hover:scale-110 p-5 bg-gradient-to-r from-green-800 via-green-600 to-lime-600 rounded cursor-pointer'
+      >
+        <a href='/trips/{{id}}'>
+          <h3
+            class='resultsTitle text-xl text-white text-center py-4'
+          >{{name}}</h3>
+        </a>
+      </div>
+    {{/each}}
+  </div>
+
+</section>
+<!-- Next and Previous -->
+<div class='flex justify-center p-10'>
+  <button
+    class='prev-btn bg-yellow-500 mr-2 p-3 rounded text-white hover:scale-110'
+  ><i class='fa-solid fa-arrow-left'></i></button>
+  <button
+    class='next-btn bg-yellow-500 ml-2 p-3 rounded text-white hover:scale-110'
+  ><i class='fa-solid fa-arrow-right'></i></button>
+</div>
+<script src='js/search.js'></script>

@@ -1,0 +1,47 @@
+<!-- - Carousel of Random Trips - -->
+
+<section aria-label='Newest photos'>
+  <div class='carousel' data-carousel>
+    <button
+      class='carousel-button prev'
+      data-carousel-button='prev'
+    >&#8592;</button>
+    <button
+      class='carousel-button next'
+      data-carousel-button='next'
+    >&#8594;</button>
+    <ul data-slides>
+      <li class='slide' data-active>
+        <img
+          src='Images/yana-marudova-I9irKyriQAc-unsplash.jpg'
+          alt='Travel IMG#1'
+        />
+      </li>
+      <li class='slide'>
+        <img
+          src='Images/tom-podmore-KS1BOYSzjh0-unsplash.jpg'
+          alt='Travel IMG#2'
+        />
+      </li>
+      <li class='slide'>
+        <img
+          src='Images/tom-podmore-t_TvL0ZLVyo-unsplash.jpg'
+          alt='Travel IMG#3'
+        />
+      </li>
+    </ul>
+  </div>
+</section>
+<!-- - login Button - -->
+
+<div>
+  <button
+    class='login-btn transition ease-in-out delay-150 bg-gradient-to-r from-green-800 via-green-600 to-lime-600 ... hover:-translate-y-1 hover:scale-110 hover:bg-yellow-500 duration-300 ...'
+  >
+    {{#if logged_in}}
+      <a href='/profile'>Adventure Awaits!</a>
+    {{else}}
+      <a href='/login'>Adventure Awaits!</a>
+    {{/if}}
+  </button>
+</div>

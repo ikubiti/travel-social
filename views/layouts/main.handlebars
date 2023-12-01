@@ -1,0 +1,151 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Travel Social</title>
+    <link rel='stylesheet' href='/css/style.css' />
+    <link
+      href='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css'
+      rel='stylesheet'
+    />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Parisienne&family=Shantell+Sans:wght@300&display=swap'
+      rel='stylesheet'
+    />
+    <script
+      src='https://kit.fontawesome.com/56a474b8e5.js'
+      crossorigin='anonymous'
+    ></script>
+    <script
+      src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js'
+    ></script>
+  </head>
+
+  <body class='bg-orange-200'>
+    <div>
+      {{#unless loginRender}}
+        <header
+          class='flex flex-auto bg-gradient-to-r from-green-700 to-lime-600 ... p-4'
+        >
+          <nav
+            class='mx-auto flex flex-wrap space-x-3 justify-between items-center text-white'
+          >
+            <div class='text-md sm:text-4xl cursor-pointer'><a href='/'><i
+                  class='fa-sharp fa-solid fa-plane mr-1'
+                ></i>Jet Set Vacations</a>
+            </div>
+            <!-- Search Bar -->
+            <div class='flex flex-col items-center md:self-auto'>
+              <form id='search-form' class='flex items-center w-full'>
+                <input
+                  class='w-full text-sm text-black rounded shadow-xl'
+                  id='search-bar'
+                  type='text'
+                  placeholder='   Search...'
+                />
+              </form>
+            </div>
+
+            {{#if logged_in}}
+              <div class='break-after-column w-20 pb-2 sm:pb-0'>
+                <a href='/profile'>
+                  <img
+                    src='{{profile_url}}'
+                    class='rounded-full shadow-lg sm:w-20 md:w-40 lg:w-40 border-4 border-green-900'
+                    alt='{{profile_alt}}'
+                  />
+                  <h2 class='text-white text-font-bold'>{{full_name}}</h2>
+                </a>
+              </div>
+            {{/if}}
+            <!-- Dropdown menu -->
+            <div>
+              <button
+                id='dropdownDefaultButton'
+                data-dropdown-toggle='dropdown'
+                class='text-black bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center focus:ring-lime-800'
+                type='button'
+              >
+                <i class='fa-solid fa-user'></i>
+                <svg
+                  class='w-4 h-4 ml-2'
+                  aria-hidden='true'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                    d='M19 9l-7 7-7-7'
+                  ></path>
+                </svg></button>
+              <!-- Dropdown menu -->
+              <div
+                id='dropdown'
+                class='z-10 hidden bg-white divide-y divide-lime-100 rounded-lg shadow w-44 bg-gradient-to-b from-lime-500 to-yellow-400'
+              >
+                <ul
+                  class='py-2 text-sm text-black'
+                  aria-labelledby='dropdownDefaultButton'
+                >
+                  <li>
+                    <a
+                      href='/'
+                      class='block px-4 py-2 bg-lime-100 hover:bg-lime-600 hover:text-white'
+                    >Home</a>
+                  </li>
+                  <li>
+                    <a
+                      href='/profile'
+                      class='block px-4 py-2 bg-lime-100 hover:bg-lime-600 hover:text-white'
+                    >Profile</a>
+                  </li>
+                  <li>
+                    {{#if logged_in}}
+                      <a
+                        id='logout'
+                        href='#'
+                        class='block px-4 py-2 bg-lime-100 hover:bg-lime-600 hover:text-white'
+                      >Sign out</a>
+                    {{else}}
+                      <a
+                        href='/login'
+                        class='block px-4 py-2 bg-lime-100 hover:bg-lime-600 hover:text-white'
+                      >Sign in</a>
+                    {{/if}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </nav>
+        </header>
+      {{/unless}}
+      <main>
+        {{{body}}}
+      </main>
+    </div>
+
+    <footer class='bg-gradient-to-r from-green-800 via-green-600 to-lime-600'>
+      <div
+        class='container mx-auto flex justify-center items-center text-white uppercase py-4'
+      >
+        <i class='fa-sharp fa-solid fa-plane mr-2'></i>
+        <p>Made by Isoyor Kubiti</p>
+      </div>
+    </footer>
+    <script src='/js/search.js' defer='defer'></script>
+    <script src='/js/carousel.js' defer='defer'></script>
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
+
+  </body>
+
+</html>

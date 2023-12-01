@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Aaron Burton",
+    "username": "aaronburton",
+    "email": "aaronburton@gmail.com",
+    "password": "jetsetpro1",
+    "profile_image": "https://drive.google.com/uc?export=view&id=1H0dGmoA6BvrVDCOaW4dItjeXsQ6wdtUv",
+    "image_name": "aaron-burton-profile.svg"
+  },
+  {
+    "name": "Christopher Girard",
+    "username": "chrisgirard",
+    "email": "christophergirard@gmail.com",
+    "password": "jetsetpro2",
+    "profile_image": "https://drive.google.com/uc?export=view&id=1tUXYmPmezM2vaKfosZanZ5gEdO95HdNo",
+    "image_name": "chris_girard_profile.jpg"
+  },
+  {
+    "name": "Fayane Jean",
+    "username": "fayanejean",
+    "email": "fayanejean@gmail.com",
+    "password": "jetsetpro3",
+    "profile_image": "https://drive.google.com/uc?export=view&id=1TzjO6TLDnzFrl6_jhH9YVpGWMK09aTgS",
+    "image_name": "fayane-jean-profile.svg"
+  },
+  {
+    "name": "Isoyor Kubiti",
+    "username": "isoyorkubiti",
+    "email": "isoyorkubiti@gmail.com",
+    "password": "jetsetpro4",
+    "profile_image": "https://drive.google.com/uc?export=view&id=12kcFymuPFICo5jz9VsJBJKdLFgq5mFH8",
+    "image_name": "Isoyor-Kubiti-profile.jpg"
+  },
+  {
+    "name": "Sal Lemons",
+    "username": "sallemon",
+    "email": "sal@hotmail.com",
+    "password": "password12345",
+    "profile_image": "https://drive.google.com/uc?export=view&id=1bgVFx3s168fTxQ0-IYgJ9yYkb48xRVhR",
+    "image_name": "Sal-Lemons-profile.jpg"
+  },
+  {
+    "name": "Lernantino Martins",
+    "username": "lernantino",
+    "email": "lernantino@gmail.com",
+    "password": "password12345",
+    "profile_image": "https://drive.google.com/uc?export=view&id=15KFxYHjYNRdaknbh7FwY0Rx8w-FHHaZu",
+    "image_name": "Lernantino-Martins-profile.jpg"
+  },
+  {
+    "name": "Amiko Deus",
+    "username": "amikodeus",
+    "email": "amiko2k20@aol.com",
+    "password": "password12345",
+    "profile_image": "https://drive.google.com/uc?export=view&id=1zLV1QGxnHe1R3tK9KTOglteXnPem6jSc",
+    "image_name": "Amiko-Dues-profile.jpg"
+  }
+]

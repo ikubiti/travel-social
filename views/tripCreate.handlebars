@@ -1,0 +1,81 @@
+<div class='flex justify-center items-center h-screen bg-slate-200'>
+  <div
+    id='form'
+    class='block bg-slate-50 p-6 bg-gradient-to-r from-green-800 via-green-600 to-lime-600 rounded-xl shadow-md shadow-slate-300 w-90'
+  >
+    <form class='tripCreate-form w-full'>
+      <h2 class='text-lime-400 text-3xl font-semibold my-4 text-center'>Create a
+        Trip</h2>
+      <!-- Trip name -->
+      <div id='trip' class='flex flex-row w-full'>
+        <div id='tripName' class='w-full'>
+          <label
+            for='fname'
+            class='flex text-sm justify-center text-center text-lime-400'
+          >Trip Name</label><br />
+          <input
+            type='text'
+            name='tripName'
+            id='trip-name-input'
+            class='h-8 w-full rounded-md border text-sm pl-2 outline-lime-600 shadow-sm'
+            placeholder='Trip Name'
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Trip Details -->
+      <label for='tripDescription' class='text-sm text-lime-400'>Describe Your
+        Trip</label><br />
+      <input
+        type='text'
+        name='tripDescription'
+        id='tripDescription'
+        class='h-8 w-full rounded-md border text-sm pl-2 outline-lime-600 shadow-sm'
+        placeholder='Description'
+        required
+      />
+
+      <!-- Trip-pictures -->
+      <label for='tripPictures' class='text-sm text-lime-400'>Upload your Trip
+        Pictures</label><br />
+      <input
+        type='file'
+        name='image'
+        id='tripPictures'
+        class='border-2 border-lime-400 bg-lime-400 text-white py-1 mt-2 w-full rounded-md hover:bg-transparent hover:text-lime-400 font-semibold'
+        multiple
+        required
+      /><br />
+
+      <!-- Tag Other Users -->
+      <div id='tagged-user-div'>
+        <label for='tagUsers' class='text-sm text-lime-400'>Enter your friend's
+          Username each followed by a comma</label><br />
+        <input
+          type='text'
+          list='users'
+          name='tagUsers'
+          id='tagUsers1'
+          class='h-8 w-full rounded-md border text-sm pl-2 outline-lime-600 shadow-sm'
+          placeholder='UserName'
+        />
+        <datalist id='users'>
+          {{#each users}}
+            <option data-value='{{id}}'>{{username}}</option>
+          {{/each}}
+        </datalist>
+      </div>
+      <!-- Sign up / submit button -->
+      <input
+        type='submit'
+        name=''
+        id='tripCreate'
+        class='border-2 border-lime-400 bg-lime-400 text-white py-1 mt-2 w-full rounded-md hover:bg-transparent hover:text-lime-400 font-semibold'
+        required
+      /><br />
+    </form>
+  </div>
+</div>
+
+<script src='js/tripCreate.js'></script>

@@ -1,0 +1,42 @@
+[
+  {
+    "image": "https://drive.google.com/uc?export=view&id=1xvZNzIDEVi9Xv5msUpWCo950rwcFDMXQ",
+    "image_name": "walt-disney-trip",
+    "description": "It's all fun at the beach",
+    "date_created": "2023-02-04",
+    "user_id": 1,
+    "trip_id": 5
+  },
+  {
+    "image": "https://drive.google.com/uc?export=view&id=1QRgUFRB91CjyyXPJlFRJgwRUYI3vXudH",
+    "image_name": "las-vegas-trip.jpg",
+    "description": "Night life in Vegas is out of this world",
+    "date_created": "2022-12-13",
+    "user_id": 2,
+    "trip_id": 4
+  },
+  {
+    "image": "https://drive.google.com/uc?export=view&id=1YlWrvEUQZAzxDe_2YFivV0egU1gL6yXv",
+    "image_name": "yosemite-falls-trail.jpg",
+    "description": "Captivating and breathtakingly beautiful",
+    "date_created": "2023-01-05",
+    "user_id": 4,
+    "trip_id": 3
+  },
+  {
+    "image": "https://drive.google.com/uc?export=view&id=1mxJG3_0-khabfIIlRFr_HOMUYAu0htKl",
+    "image_name": "new-york-city-statue-of-liberty.jpg",
+    "description": "A truly national symbol of unity and hope",
+    "date_created": "2022-11-18",
+    "user_id": 5,
+    "trip_id": 2
+  },
+  {
+    "image": "https://drive.google.com/uc?export=view&id=1u6j4yoEPD3jfa8KixbUQnS1Dn_qbbE06",
+    "image_name": "glacier-national-park-best-hiking-trails-highline-trails.jpg",
+    "description": "Nature at its best",
+    "date_created": "2023-02-12",
+    "user_id": 3,
+    "trip_id": 1
+  }
+]
