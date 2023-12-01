@@ -1,4 +1,3 @@
-
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -16,14 +15,12 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
       document.location.replace('/profile');
     } else {
       alert(response.statusText);
     }
   }
 };
-
 
 document
   .querySelector('#login-form')

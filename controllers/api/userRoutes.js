@@ -60,14 +60,15 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      req.session.full_name = userData.name;
-      req.session.profile_url = userData.profile_image;
-      req.session.profile_alt = userData.image_name;
+    // Save the session, logging the user in
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
+    req.session.full_name = userData.name;
+    req.session.profile_url = userData.profile_image;
+    req.session.profile_alt = userData.image_name;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
+    req.session.save(() => {
+      res.json({ user: true, message: 'You are now logged in!' });
     });
   } catch (err) {
     res.status(400).json(err);

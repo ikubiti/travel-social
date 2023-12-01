@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Trips, Users, Images} = require('../models');
+const { Trips, Users, Images } = require('../models');
 const withAuth = require('../utils/auth');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
@@ -16,8 +16,8 @@ router.get('/', async (req, res) => {
         },
         {
           model: Trips,
-          attributes: ['name']
-        }
+          attributes: ['name'],
+        },
       ],
     });
 
@@ -25,14 +25,16 @@ router.get('/', async (req, res) => {
     const images = imageData.map((image) => image.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      images, 
+    res.render('homepage', {
+      images,
       logged_in: req.session.logged_in,
       full_name: req.session.full_name,
       profile_url: req.session.profile_url,
-      profile_alt: req.session.profile_alt
+      profile_alt: req.session.profile_alt,
     });
-  } catch (err) {res.status(500).json(err)};
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Get route for the search bar results
@@ -42,34 +44,38 @@ router.get('/search/:search', async (req, res) => {
     const searchUserData = await Users.findAll({
       where: {
         [Op.or]: [
-          {username: {[Op.like]: '%' + `${req.params.search}` + '%'}},
-          {name: {[Op.like]: '%' + `${req.params.search}` + '%'}},
-      ]},
+          { username: { [Op.like]: '%' + `${req.params.search}` + '%' } },
+          { name: { [Op.like]: '%' + `${req.params.search}` + '%' } },
+        ],
+      },
       attributes: { exclude: ['password'] },
     });
 
     const searchTripData = await Trips.findAll({
-      where:{
-        [Op.or]: [
-          {name: {[Op.like]: '%' + `${req.params.search}` + '%'}},
-      ]},
+      where: {
+        [Op.or]: [{ name: { [Op.like]: '%' + `${req.params.search}` + '%' } }],
+      },
     });
 
-    if(!searchUserData && searchTripData) {return {message: "No Users or Trips found with this Name"}}
-    
+    if (!searchUserData && searchTripData) {
+      return { message: 'No Users or Trips found with this Name' };
+    }
+
     const user = searchUserData.map((users) => users.get({ plain: true }));
     const trip = searchTripData.map((trips) => trips.get({ plain: true }));
     console.log(user);
     console.log(trip);
-    
+
     res.render('search', {
       user,
       trip,
       hasUsers: true,
       hasTrips: true,
-      logged_in: true
+      logged_in: true,
     });
-  } catch (err) {res.status(500).json(err), console.log(err)};
+  } catch (err) {
+    res.status(500).json(err), console.log(err);
+  }
 });
 
 router.get('/login', (req, res) => {
@@ -80,7 +86,7 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login', {
-    loginRender: true
+    loginRender: true,
   });
 });
 
@@ -93,11 +99,11 @@ router.get('/signup', (req, res) => {
   }
 
   res.render('registration', {
-    loginRender: true
+    loginRender: true,
   });
 });
 
-router.get('/tripcreate', async (req,res) => {
+router.get('/tripcreate', async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect('/login');
     return;
@@ -111,7 +117,7 @@ router.get('/tripcreate', async (req,res) => {
     logged_in: req.session.logged_in,
     full_name: req.session.full_name,
     profile_url: req.session.profile_url,
-    profile_alt: req.session.profile_alt
+    profile_alt: req.session.profile_alt,
   });
 });
 
