@@ -21,5 +21,8 @@ module.exports = {
   },
   getImage: (images) => {
     return images[Math.floor(Math.random() * images.length)].image;
-  }
+  },
+  increaseByOne: (position) => {
+    return position + 1;
+  },
 };

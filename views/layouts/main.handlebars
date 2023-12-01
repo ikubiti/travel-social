@@ -5,21 +5,33 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Travel Social</title>
-    <link rel='stylesheet' href='/css/style.css' />
+
     <link
-      href='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css'
       rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css'
+      integrity='sha512-+H3u2Dc/mxjqRPwG/fJmaDIuaNWHm7DQyjdi0ugYcm8FAB6uDaIvo6d0GqoUokkTvkaD6tSxzXV2tEFxPsZClA=='
+      crossorigin='anonymous'
+      referrerpolicy='no-referrer'
     />
+
     <link
       href='https://fonts.googleapis.com/css2?family=Parisienne&family=Shantell+Sans:wght@300&display=swap'
       rel='stylesheet'
     />
+    <link rel='stylesheet' href='/css/style.css' />
+
     <script
+      defer
       src='https://kit.fontawesome.com/56a474b8e5.js'
       crossorigin='anonymous'
     ></script>
+
     <script
-      src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js'
+      defer
+      src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js'
+      integrity='sha512-khqZ6XB3gzYqfJvXI2qevflbsTvd+aSpMkOVQUvXKyhRgEdORMefo3nNOvCM8584/mUoq/oBG3Vb3gfGzwQgkw=='
+      crossorigin='anonymous'
+      referrerpolicy='no-referrer'
     ></script>
   </head>
 
@@ -136,11 +148,10 @@
         class='container mx-auto flex justify-center items-center text-white uppercase py-4'
       >
         <i class='fa-sharp fa-solid fa-plane mr-2'></i>
-        <p>Made by Isoyor Kubiti</p>
+        <p>Made by Travel Social</p>
       </div>
     </footer>
     <script src='/js/search.js' defer='defer'></script>
-    <script src='/js/carousel.js' defer='defer'></script>
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
       <script src='/js/logout.js'></script>

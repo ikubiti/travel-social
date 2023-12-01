@@ -4,6 +4,298 @@
   class='w-full h-auto py-16 px-2 border-b-2 border-r-2 rounded border-gray-300 sm:rounded-lg sm:shadow-sm space-y-3'
 >
   <div class='px-2'>
+        {{#if performSlides}}
+        <!-- Trip Image Carousel Div -->
+          <div
+            id='default-carousel'
+            class='relative w-full my-10 z-0'
+            data-carousel='slide'
+          >
+            <!-- Carousel wrapper -->
+            <div class='relative h-64 overflow-hidden rounded-lg md:h-[70%]'>
+
+              {{! Trip Images }}
+              {{#each images}}
+                <div class='hidden transition duration-1000 ease-in' data-carousel-item>
+                  <img
+                    src='{{image}}'
+                    alt='{{image_name}}'
+                    class='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
+                  />
+                </div>
+              {{/each}}
+            </div>
+            <!-- Slider indicators -->
+            <div
+              class='absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse'
+            >
+            {{#each images}}
+              <button
+                type='button'
+                class='w-3 h-3 rounded-full'
+                aria-current='true'
+                aria-label=`Slide {{increaseByOne @index}}`
+                data-carousel-slide-to=`{{@index}}`
+              ></button>
+            {{/each}}
+            </div>
+            <!-- Slider controls -->
+            <button
+              type='button'
+              class='absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none'
+              data-carousel-prev
+            >
+              <span
+                class='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none'
+              >
+                <svg
+                  class='w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180'
+                  aria-hidden='true'
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 6 10'
+                >
+                  <path
+                    stroke='currentColor'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                    d='M5 1 1 5l4 4'
+                  />
+                </svg>
+                <span class='sr-only'>Previous</span>
+              </span>
+            </button>
+            <button
+              type='button'
+              class='absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none'
+              data-carousel-next
+            >
+              <span
+                class='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none'
+              >
+                <svg
+                  class='w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180'
+                  aria-hidden='true'
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 6 10'
+                >
+                  <path
+                    stroke='currentColor'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                    d='m1 9 4-4-4-4'
+                  />
+                </svg>
+                <span class='sr-only'>Next</span>
+              </span>
+            </button>
+          </div>
+        {{else}}
+          <div class='relative w-full my-10 z-0'>
+            <div class='relative h-64 overflow-hidden rounded-lg md:h-[70%]'>
+              <img
+                      src='{{images.[0].image}}'
+                      alt='{{images.[0].image_name}}'
+                      class='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
+                    />
+            </div>
+          </div>
+        {{/if}}
+
+
+    
+    <!-- Trip Image Carousel Div -->
+    {{!-- <section
+      aria-label='Newest photos'
+      class='flex flex-wrap flex-auto flex-shrink flex-grow'
+    >
+      <div class='carousel' data-carousel>
+        <button
+          class='carousel-button prev'
+          data-carousel-button='prev'
+        >&#8592;</button>
+        <button
+          class='carousel-button next'
+          data-carousel-button='next'
+        >&#8594;</button>
+        <ul data-slides>
+          {{#each images}}
+            <li class='slide' data-active>
+              <img src='{{image}}' alt='{{image_name}}' />
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </section> --}}
+    <section id='trip-details' class='flex flex-wrap carousel-width mt-4'>
+      <div
+        id='trip-about-card'
+        class='flex flex-1 flex-wrap flex-col justify-center w-full border-r-8 border-border-green bg-gray-100 carousel-border'
+      >
+        <div>
+          <h1
+            class='py-2 text-center font-bold text-xl bg-brown-700 border-b-4 border-gray-400'
+          >{{name}}</h1>
+        </div>
+        <div>
+          <div
+            class='flex flex-wrap flex-grow flex-shrink flex-1 w-full justify-center'
+          >
+            <h3
+              class='py-2 justify-center text-center font-bold border-b-4 border-gray-400 rounded-md w-3/4 text-lime-500'
+            >About The Trip</h3>
+          </div>
+          <p class='py-2 text-center font-semibold mt-3'>{{{description}}}</p>
+        </div>
+        <div class=''>
+          <h3 class='py-2 text-center font-bold mt-6 text-lime-500'>Trip Started
+            On:
+            {{format_date date_created}}</h3>
+        </div>
+      </div>
+      <div
+        id='tagged-card'
+        class='block w-full mt-4 bg-gray-100 carousel-border'
+      >
+        <h3
+          class='py-2 text-center text-xl font-bold border-b-4 border-gray-400 bg-brown-700'
+        >Trip Users</h3>
+        <div
+          class='flex flex-wrap flex-grow flex-shrink flex-1 w-full justify-evenly'
+        >
+          <a href='/profile/{{user_id}}' class='flex flex-auto flex-col'>
+            <div
+              id='avatar'
+              class='flex flex-auto justify-center py-2 sm:py-1 grow-0'
+            >
+              <img
+                src='{{user.profile_image}}'
+                class='rounded-full shadow-lg sm:w-20 md:w-40 lg:w-40 bg-white'
+                alt='{{user.image_name}}'
+              />
+            </div>
+            <button
+              class='flex flex-auto self-center justify-center py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
+            >{{user.username}}</button>
+          </a>
+          {{#each taggeds}}
+            <a href='/profile/{{user_id}}' class='flex flex-auto flex-col'>
+              <div
+                id='avatar'
+                class='flex flex-auto justify-center py-2 sm:py-1 grow-0'
+              >
+                <img
+                  src='{{user.profile_image}}'
+                  class='rounded-full shadow-lg sm:w-20 md:w-40 lg:w-40 bg-white'
+                  alt='{{user.image_name}}'
+                />
+              </div>
+              <button
+                class='flex flex-auto self-center justify-center py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
+              >{{user.username}}</button>
+            </a>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+    <section
+      id='trip-comments'
+      class='block carousel-width columns-1 sm:columns-1 mt-4'
+      data-trip='{{id}}'
+    >
+      <div
+        id='trip-comments-card'
+        class='block w-full justify-center sm:float-left columns-1 sm:columns-1 border-border-green bg-gray-100 carousel-border'
+      >
+        <div class='bg-gray-100 pb-1'>
+          <h2
+            class='py-2 text-center font-bold border-b-4 border-gray-400 bg-brown-700'
+          >Comments</h2>
+          {{#each comments}}
+            <div
+              class='mb-3 m-3 text-center border-gray-600 border-2 rounded-md'
+              data-location='{{location_id}}'
+              data-number='{{id}}'
+              data-comment='{{@index}}'
+            >
+              <h3
+                class='flex font-bold bg-lime-600 border-b-2 rounded-t-md indent-1'
+              >{{user.username}}
+                <a class='ml-1 mt-1 text-xs font-semibold'>on:
+                  {{format_date date_created}}</a></h3>
+              <p
+                id='comment{{@index}}'
+                class='font-semibold rounded-b-md bg-white'
+              >{{comment}}</p>
+              {{#if isAllowed}}
+                <button
+                  id='update'
+                  data-comment='{{id}}'
+                  class='btn btn-primary btn-block py-3'
+                  type='submit'
+                >Update</button>
+                <button
+                  id='delete'
+                  data-comment='{{id}}'
+                  class='btn btn-primary btn-block py-3'
+                  type='submit'
+                >Delete</button>
+              {{/if}}
+            </div>
+          {{/each}}
+        </div>
+        <div
+          class='comment-form w-full mt-2 border-t-4 border-gray-400 justify-center'
+        >
+          <form
+            class='w-full h-auto min-h-[50%] mt-4 justify-center'
+            id='comment-form'
+          >
+            <div class='w-full'>
+              <textarea
+                name='comment-text'
+                id='comment-text'
+                placeholder='Enter Comment Here'
+                value=''
+                class='form-input w-full'
+              ></textarea>
+            </div>
+
+            <div class=''>
+              <button
+                id='cancelComment'
+                class='btn btn-primary btn-block py-3 no-display'
+              >
+                Cancel
+              </button>
+              <button
+                id='newComment'
+                class='btn btn-primary btn-block py-3'
+                type='submit'
+              >
+                Submit
+              </button>
+              <button
+                id='updateComment'
+                class='btn btn-primary btn-block py-3 no-display'
+              >
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+{{!-- <div
+  class='w-full h-auto py-16 px-2 border-b-2 border-r-2 rounded border-gray-300 sm:rounded-lg sm:shadow-sm space-y-3'
+>
+  <div class='px-2'>
     <!-- Trip Image Carousel Div -->
     <section
       aria-label='Newest photos'
@@ -187,6 +479,6 @@
       </div>
     </section>
   </div>
-</div>
+</div> --}}
 
 <script src='/js/userComments.js'></script>

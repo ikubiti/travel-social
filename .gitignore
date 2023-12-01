@@ -1,7 +1,7 @@
 node_modules
 .env
 .DS_Store
-Jet-Set-Social.code-workspace
+travel-social.code-workspace
 input.css
 tailwind.config.js
 ```

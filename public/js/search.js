@@ -1,10 +1,15 @@
 const searchQuery = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    //Collect Search Inquiry from the searchbar
-    const searchRaw = document.querySelector('#search-bar').value.trim().toLowerCase();
-    document.location.replace('/search/'+searchRaw);
+  //Collect Search Inquiry from the searchbar
+  const searchRaw = document
+    .querySelector('#search-bar')
+    .value.trim()
+    .toLowerCase();
+  document.location.replace('/search/' + searchRaw);
 };
 
 const searchEl = document.querySelector('#search-form');
-searchEl.addEventListener('submit', searchQuery);
+if (searchEl) {
+  searchEl.addEventListener('submit', searchQuery);
+}
