@@ -13,7 +13,7 @@
         class='rounded-full shadow-lg sm:w-20 md:w-40 lg:w-40 border-4 border-green-900'
         alt='{{image_name}}'
       />
-      <h2 class='text-lime-500 text-font-bold'>{{name}}</h2>
+      <h2 class='text-lime-700 text-font-bold'>{{name}}</h2>
     </div>
     <!-- Container for All the Trip Cards -->
     <div class='w-full'>
@@ -28,12 +28,12 @@
               id='trip-card'
               class='flex flex-col lg:flex-row border-y-4 border-green-900'
             >
-              <figure id='trip-photo' class='flex w-full float-left'>
+              <figure id='trip-photo' class='flex w-full'>
 
                 <a href='/trips/{{trip.id}}'>
                   <img
                     src='{{getImage trip.images}}'
-                    class='sm:rounded-none'
+                    class='object-fill h-full mx-auto'
                     alt='Trip Photo of {{trip.name}}'
                   />
                 </a>

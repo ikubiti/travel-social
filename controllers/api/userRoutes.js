@@ -1,35 +1,49 @@
 const router = require('express').Router();
 const { Users } = require('../../models');
-// const remoteConnect = require('../../utils/remoteConnect');
-const remoteConnect = '';
+const remoteConnect = require('../../utils/remoteConnect');
 const multer = require('multer');
-const upload = multer();
+// const upload = multer();
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 // User Creation Routes
 // Create User
-router.post('/', upload.any(), async (req, res) => {
+router.post('/', upload.single('image'), async (req, res) => {
   try {
-    // files is a standard variable that comes in the request.
-    const { body, files } = req;
-    let result = await remoteConnect.saveFiles(files);
+    // Get the request objects.
+    const { body, file } = req;
 
-    // Assuming the body uses our naming conventions
+    const fileBuffer = file.buffer;
+    const fileName = file.originalname;
+
+    let profileImage = await remoteConnect.uploadFile(
+      fileBuffer,
+      fileName,
+      file.mimetype
+    );
+
+    // Create the user
     let newUser = {
       name: `${body.firstName} ${body.lastName}`,
       username: body.username,
       email: body.email,
-      profile_image: `https://drive.google.com/uc?export=view&id=${result.file_id}`,
-      image_name: result.filename,
+      profile_image: profileImage,
+      image_name: fileName,
       password: body.password,
     };
 
+    // console.log(newUser);
+
     const userData = await Users.create(newUser);
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
+    req.session.full_name = userData.name;
+    req.session.profile_url = userData.profile_image;
+    req.session.profile_alt = userData.image_name;
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
+      res.status(200).json({ message: 'User created!' });
     });
   } catch (err) {
     res.status(400).json(err);
@@ -88,7 +102,7 @@ router.post('/logout', (req, res) => {
 
 // User Data Routes
 // GET all Users
-router.get('/', upload.any(), async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const userData = await Users.findAll();
     const users = userData.map((user) => user.get({ plain: true }));
