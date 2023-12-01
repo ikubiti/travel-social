@@ -27,6 +27,7 @@ const uploadFile = async (fileBuffer, fileName, mimetype) => {
   };
 
   await s3Client.send(new PutObjectCommand(uploadParams));
+  // Return the public URL.
   return `${awsUrl}/${fileName}`;
 };
 
@@ -39,12 +40,7 @@ const deleteFile = (fileName) => {
   return s3Client.send(new DeleteObjectCommand(deleteParams));
 };
 
-const getPublicUrl = (fileKey) => {
-  return `${awsUrl}/${fileKey}`;
-};
-
 module.exports = {
   uploadFile,
   deleteFile,
-  getPublicUrl,
 };

@@ -105,31 +105,7 @@
           </div>
         {{/if}}
 
-
-    
-    <!-- Trip Image Carousel Div -->
-    {{!-- <section
-      aria-label='Newest photos'
-      class='flex flex-wrap flex-auto flex-shrink flex-grow'
-    >
-      <div class='carousel' data-carousel>
-        <button
-          class='carousel-button prev'
-          data-carousel-button='prev'
-        >&#8592;</button>
-        <button
-          class='carousel-button next'
-          data-carousel-button='next'
-        >&#8594;</button>
-        <ul data-slides>
-          {{#each images}}
-            <li class='slide' data-active>
-              <img src='{{image}}' alt='{{image_name}}' />
-            </li>
-          {{/each}}
-        </ul>
-      </div>
-    </section> --}}
+    {{!-- Trip Details --}}
     <section id='trip-details' class='flex flex-wrap carousel-width mt-4'>
       <div
         id='trip-about-card'
@@ -178,7 +154,7 @@
               />
             </div>
             <button
-              class='flex flex-auto self-center justify-center py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
+              class='flex flex-auto self-center justify-center px-3 py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
             >{{user.username}}</button>
           </a>
           {{#each taggeds}}
@@ -194,7 +170,7 @@
                 />
               </div>
               <button
-                class='flex flex-auto self-center justify-center py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
+                class='flex flex-auto self-center justify-center px-3 py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
               >{{user.username}}</button>
             </a>
           {{/each}}
@@ -231,18 +207,21 @@
                 class='font-semibold rounded-b-md bg-white'
               >{{comment}}</p>
               {{#if isAllowed}}
+              <div class='flex flex-auto self-center justify-center'>
                 <button
                   id='update'
                   data-comment='{{id}}'
-                  class='btn btn-primary btn-block py-3'
+                  class='flex self-center justify-center px-4 py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
                   type='submit'
                 >Update</button>
                 <button
                   id='delete'
                   data-comment='{{id}}'
-                  class='btn btn-primary btn-block py-3'
+                  class='ml-2 flex self-center justify-center px-4 py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
                   type='submit'
                 >Delete</button>
+              </div>
+                
               {{/if}}
             </div>
           {{/each}}
@@ -264,23 +243,23 @@
               ></textarea>
             </div>
 
-            <div class=''>
+            <div class='flex flex-auto self-center justify-center mt-3'>
               <button
                 id='cancelComment'
-                class='btn btn-primary btn-block py-3 no-display'
+                class='hidden self-center justify-center px-4 py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600 '
               >
                 Cancel
               </button>
               <button
                 id='newComment'
-                class='btn btn-primary btn-block py-3'
+                class='flex self-center justify-center px-4 py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
                 type='submit'
               >
                 Submit
               </button>
               <button
                 id='updateComment'
-                class='btn btn-primary btn-block py-3 no-display'
+                class='ml-2 hidden self-center justify-center px-4 py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
               >
                 Update
               </button>
@@ -291,194 +270,5 @@
     </section>
   </div>
 </div>
-
-{{!-- <div
-  class='w-full h-auto py-16 px-2 border-b-2 border-r-2 rounded border-gray-300 sm:rounded-lg sm:shadow-sm space-y-3'
->
-  <div class='px-2'>
-    <!-- Trip Image Carousel Div -->
-    <section
-      aria-label='Newest photos'
-      class='flex flex-wrap flex-auto flex-shrink flex-grow'
-    >
-      <div class='carousel' data-carousel>
-        <button
-          class='carousel-button prev'
-          data-carousel-button='prev'
-        >&#8592;</button>
-        <button
-          class='carousel-button next'
-          data-carousel-button='next'
-        >&#8594;</button>
-        <ul data-slides>
-          {{#each images}}
-            <li class='slide' data-active>
-              <img src='{{image}}' alt='{{image_name}}' />
-            </li>
-          {{/each}}
-        </ul>
-      </div>
-    </section>
-    <section id='trip-details' class='flex flex-wrap carousel-width mt-4'>
-      <div
-        id='trip-about-card'
-        class='flex flex-1 flex-wrap flex-col justify-center w-full border-r-8 border-border-green bg-gray-100 carousel-border'
-      >
-        <div>
-          <h1
-            class='py-2 text-center font-bold text-xl bg-brown-700 border-b-4 border-gray-400'
-          >{{name}}</h1>
-        </div>
-        <div>
-          <div
-            class='flex flex-wrap flex-grow flex-shrink flex-1 w-full justify-center'
-          >
-            <h3
-              class='py-2 justify-center text-center font-bold border-b-4 border-gray-400 rounded-md w-3/4 text-lime-500'
-            >About The Trip</h3>
-          </div>
-          <p class='py-2 text-center font-semibold mt-3'>{{{description}}}</p>
-        </div>
-        <div class=''>
-          <h3 class='py-2 text-center font-bold mt-6 text-lime-500'>Trip Started
-            On:
-            {{format_date date_created}}</h3>
-        </div>
-      </div>
-      <div
-        id='tagged-card'
-        class='block w-full mt-4 bg-gray-100 carousel-border'
-      >
-        <h3
-          class='py-2 text-center text-xl font-bold border-b-4 border-gray-400 bg-brown-700'
-        >Trip Users</h3>
-        <div
-          class='flex flex-wrap flex-grow flex-shrink flex-1 w-full justify-evenly'
-        >
-          <a href='/profile/{{user_id}}' class='flex flex-auto flex-col'>
-            <div
-              id='avatar'
-              class='flex flex-auto justify-center py-2 sm:py-1 grow-0'
-            >
-              <img
-                src='{{user.profile_image}}'
-                class='rounded-full shadow-lg sm:w-20 md:w-40 lg:w-40 bg-white'
-                alt='{{user.image_name}}'
-              />
-            </div>
-            <button
-              class='flex flex-auto self-center justify-center py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
-            >{{user.username}}</button>
-          </a>
-          {{#each taggeds}}
-            <a href='/profile/{{user_id}}' class='flex flex-auto flex-col'>
-              <div
-                id='avatar'
-                class='flex flex-auto justify-center py-2 sm:py-1 grow-0'
-              >
-                <img
-                  src='{{user.profile_image}}'
-                  class='rounded-full shadow-lg sm:w-20 md:w-40 lg:w-40 bg-white'
-                  alt='{{user.image_name}}'
-                />
-              </div>
-              <button
-                class='flex flex-auto self-center justify-center py-2 text-center btn rounded-md border-2 border-gray-400 bg-gradient-to-r from-orange-300 to-brown-600'
-              >{{user.username}}</button>
-            </a>
-          {{/each}}
-        </div>
-      </div>
-    </section>
-    <section
-      id='trip-comments'
-      class='block carousel-width columns-1 sm:columns-1 mt-4'
-      data-trip='{{id}}'
-    >
-      <div
-        id='trip-comments-card'
-        class='block w-full justify-center sm:float-left columns-1 sm:columns-1 border-border-green bg-gray-100 carousel-border'
-      >
-        <div class='bg-gray-100 pb-1'>
-          <h2
-            class='py-2 text-center font-bold border-b-4 border-gray-400 bg-brown-700'
-          >Comments</h2>
-          {{#each comments}}
-            <div
-              class='mb-3 m-3 text-center border-gray-600 border-2 rounded-md'
-              data-location='{{location_id}}'
-              data-number='{{id}}'
-              data-comment='{{@index}}'
-            >
-              <h3
-                class='flex font-bold bg-lime-600 border-b-2 rounded-t-md indent-1'
-              >{{user.username}}
-                <a class='ml-1 mt-1 text-xs font-semibold'>on:
-                  {{format_date date_created}}</a></h3>
-              <p
-                id='comment{{@index}}'
-                class='font-semibold rounded-b-md bg-white'
-              >{{comment}}</p>
-              {{#if isAllowed}}
-                <button
-                  id='update'
-                  data-comment='{{id}}'
-                  class='btn btn-primary btn-block py-3'
-                  type='submit'
-                >Update</button>
-                <button
-                  id='delete'
-                  data-comment='{{id}}'
-                  class='btn btn-primary btn-block py-3'
-                  type='submit'
-                >Delete</button>
-              {{/if}}
-            </div>
-          {{/each}}
-        </div>
-        <div
-          class='comment-form w-full mt-2 border-t-4 border-gray-400 justify-center'
-        >
-          <form
-            class='w-full h-auto min-h-[50%] mt-4 justify-center'
-            id='comment-form'
-          >
-            <div class='w-full'>
-              <textarea
-                name='comment-text'
-                id='comment-text'
-                placeholder='Enter Comment Here'
-                value=''
-                class='form-input w-full'
-              ></textarea>
-            </div>
-
-            <div class=''>
-              <button
-                id='cancelComment'
-                class='btn btn-primary btn-block py-3 no-display'
-              >
-                Cancel
-              </button>
-              <button
-                id='newComment'
-                class='btn btn-primary btn-block py-3'
-                type='submit'
-              >
-                Submit
-              </button>
-              <button
-                id='updateComment'
-                class='btn btn-primary btn-block py-3 no-display'
-              >
-                Update
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </div>
-</div> --}}
 
 <script src='/js/userComments.js'></script>
