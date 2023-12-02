@@ -22,13 +22,13 @@ SO I can plan my next trip or suggest a location to any acquiescence
 
 ## Preview
 
-The Travel Social website is available at [https://serene-beach-93535.herokuapp.com/](https://serene-beach-93535.herokuapp.com/profile).
+The Travel Social website is available at [https://hidden-wildwood-12693-ad01963e008c.herokuapp.com/](https://hidden-wildwood-12693-ad01963e008c.herokuapp.com/).
 
 The following images shows the HTML’s appearance and functionality:
 
-![Webpage window of the trip page titled “Trips” features a carousel of images from the trip as the first element, followed by the trip details, the users apart of the trip, and lastly the comment section.](public/Images/Jet-Set-Vacations.png)
+![Webpage window of the trip page titled “Trips” features a carousel of images from the trip as the first element, followed by the trip details, the users apart of the trip, and lastly the comment section.](public/Images/Travel_Social.png)
 
-![Webpage window titled “Homepage” features a Carousel of random images from trips on the site with a button underneath describing Adventure Awaits which is used to login or register a new account.](public/Images/Jet-Set-Vacations-Home.png)
+![Webpage window titled “Homepage” features a Carousel of random images from trips on the site with a button underneath describing Adventure Awaits which is used to login or register a new account.](public/Images/Travel_Social_Homepage.png)
 
 ![The Profile page of any user](public/Images/Profile_page.png) 
 
@@ -36,7 +36,13 @@ The following images shows the HTML’s appearance and functionality:
 
 ![The bottom-half of the trip page showing comments about the trip.](public/Images/Comments.png) 
 
-![The trip creation page](public/Images/Create_Trip.png) 
+![The trip creation page](public/Images/Create_Trip.png)
+
+![The Login page](public/Images/Login_page.png) 
+
+![The Create user registration page](public/Images/Register_user.png) 
+
+
 
   
 ## Installation
