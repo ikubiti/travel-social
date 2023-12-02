@@ -27,7 +27,6 @@ const uploadFile = async (fileBuffer, fileName, mimetype) => {
   };
 
   await s3Client.send(new PutObjectCommand(uploadParams));
-  // Return the public URL.
   return `${awsUrl}/${fileName}`;
 };
 
