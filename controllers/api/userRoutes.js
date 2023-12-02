@@ -2,12 +2,9 @@ const router = require('express').Router();
 const { Users } = require('../../models');
 const remoteConnect = require('../../utils/remoteConnect');
 const multer = require('multer');
-// const upload = multer();
-
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// User Creation Routes
 // Create User
 router.post('/', upload.single('image'), async (req, res) => {
   try {

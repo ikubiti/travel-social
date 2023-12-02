@@ -1,13 +1,12 @@
 const router = require('express').Router();
 const { Trips, Images, Tagged, Users } = require('../../models');
 const withAuth = require('../../utils/auth');
-// const remoteConnect = require('../../utils/remoteConnect');
-const remoteConnect = '';
+const remoteConnect = require('../../utils/remoteConnect');
 const multer = require('multer');
 const upload = multer();
 
 // GET all Trips
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const tripData = await Trips.findAll();
     const trips = tripData.map((trip) => trip.get({ plain: true }));
@@ -19,7 +18,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET Trip by id
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const tripData = await Trips.findByPk(req.params.id);
 
@@ -34,13 +33,30 @@ router.get('/:id', async (req, res) => {
 });
 
 // CREATE a new Trip
-router.post('/', upload.any(), async (req, res) => {
+router.post('/', withAuth, upload.any(), async (req, res) => {
   try {
-    // files is a standard variable that comes in the request.
+    // Multiple images expected here
     const { body, files } = req;
-    let result = await remoteConnect.saveFiles(files);
 
-    // Assuming the body uses our naming conventions
+    let result = [];
+    for (let i = 0; i < files.length; i++) {
+      let image = await remoteConnect.uploadFile(
+        files[i].buffer,
+        files[i].originalname,
+        files[i].mimetype
+      );
+
+      let imageData = {
+        image: image,
+        image_name: files[i].originalname,
+        description: `${body.tripDescription}`,
+        user_id: req.session.user_id,
+      };
+
+      result.push(imageData);
+    }
+
+    // creating a new trip
     let newTrip = {
       name: `${body.tripName}`,
       description: `${body.tripDescription}`,
@@ -70,18 +86,11 @@ router.post('/', upload.any(), async (req, res) => {
 
     // Add any trip image to the trip
     for (let i = 0; i < result.length; i++) {
-      let imageData = {
-        image: `https://drive.google.com/uc?export=view&id=${result[i].file_id}`,
-        image_name: `${result[i].filename}`,
-        description: `${trip.description}`,
-        user_id: req.session.user_id,
-        trip_id: trip.id,
-      };
-
-      await Images.create(imageData);
+      result[i].trip_id = trip.id;
+      await Images.create(result[i]);
     }
-    console.log(trip);
-    res.status(200).json(trip);
+
+    res.status(200).json({ id: trip.id });
   } catch (err) {
     res.status(400).json(err), console.log(err);
   }
