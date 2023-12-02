@@ -22,7 +22,7 @@ SO I can plan my next trip or suggest a location to any acquiescence
 
 ## Preview
 
-The Travel Social website is available at [https://hidden-wildwood-12693-ad01963e008c.herokuapp.com/](https://hidden-wildwood-12693-ad01963e008c.herokuapp.com/).
+The Travel Social website is available at [https://trasocial-004292627be8.herokuapp.com/](https://trasocial-004292627be8.herokuapp.com/).
 
 The following images shows the HTML’s appearance and functionality:
 
